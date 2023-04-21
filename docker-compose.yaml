@@ -1,0 +1,30 @@
+version: "18.14.2"
+
+services:
+  node3:
+    image: kardinalanna/blockchain
+    container_name: node2
+    network_mode: host
+    command: "index.js 2"
+    stdin_open: true
+    tty: true
+
+
+  node2:
+    image: kardinalanna/blockchain
+    container_name: node1
+    network_mode: host
+    command: "index.js 1"
+    stdin_open: true
+    tty: true
+
+  node1:
+    image: kardinalanna/blockchain
+    container_name: node0
+    network_mode: host
+    command: "index.js 0"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - node2
+      - node3
