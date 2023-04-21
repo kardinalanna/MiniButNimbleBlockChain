@@ -2,9 +2,6 @@ name: Tests-Miniblockchain
 
 on:
   push:
-    branches:
-      - main
-      - develop
   pull_request:
     branches:
       - main
@@ -18,9 +15,9 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js 18.14.2
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 18.14.2
           cache: 'npm'

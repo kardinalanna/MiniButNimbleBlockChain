@@ -1,9 +1,9 @@
 # MiniButNimbleBlockChain
 Это маленькая, но проворная BlockChain, написанная на Node.js
 
-[![master](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml) master
+[![main](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml) master
 
-[![master](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml/badge.svg?branch=develop)](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml) develop
+[![main](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml/badge.svg?branch=develop)](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml) develop
 
 Основные сущности:
 1. Block.js - класс для генерации блоков цепочки блокчейна, состоящих из следующих полей:
