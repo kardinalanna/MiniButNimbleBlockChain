@@ -1,7 +1,7 @@
 # MiniButNimbleBlockChain
 Это маленькая, но проворная BlockChain, написанная на Node.js
 
-[![master](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml)
+[![master](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml) master
 
 [![master](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml/badge.svg?branch=develop)](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml) develop
 
