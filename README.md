@@ -1,6 +1,10 @@
 # MiniButNimbleBlockChain
 Это маленькая, но проворная BlockChain, написанная на Node.js
 
+[![main](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml) master
+
+[![main](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml/badge.svg?branch=develop)](https://github.com/kardinalanna/MiniButNimbleBlockChain/actions/workflows/test.yml) develop
+
 Основные сущности:
 1. Block.js - класс для генерации блоков цепочки блокчейна, состоящих из следующих полей:
     + index - номер блока по возрастанию, первый блок имеет индекс = 0
@@ -27,7 +31,7 @@
 3. Запустите 3 терминала, задав в каждом команду `index.js 0`, `index.js 1`, `index.js 2` соответсвенно (жедательно осуществить запуска одновременно) 
 
 ---
-###Процесс работы
-![alt text](https://github.com/kardinalanna/MiniButNimbleBlockChain/blob/develop/exp_img.PNG?raw=true)
+### Процесс работы
+![alt text](https://github.com/kardinalanna/MiniButNimbleBlockChain/blob/develop/exp_img.png?raw=true)
 
 Node_0 генерирует первый блок и отправляет Node_1 и Node_2 и себе, как только первый блок добавлен, начинается майнинг следующих блоков и рассыдка их всем нодам, включая себя
