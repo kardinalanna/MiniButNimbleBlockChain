@@ -25,7 +25,7 @@ module.exports = class Server {
         const app = express()
 
         app.use(express.json())
-        const port = 3000 + this.processId
+        const port =  Number(process.env.PORT)
 
         app.post('/', function(req, res) {
 
@@ -50,7 +50,7 @@ module.exports = class Server {
 
         this.app = app.listen(port, () => {
 
-            console.log(`Server 1 has been started on port ${port}`)
+            console.log(Server 1 has been started on port ${port})
 
         })
 

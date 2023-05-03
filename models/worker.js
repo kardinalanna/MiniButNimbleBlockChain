@@ -17,9 +17,11 @@ parentPort.on('message', msg => {
 })
 
 function sendBlock(block) {
+  
+  const ADDRESS = process.env.ADDRESS
+  const OTHERS = process.env.OTHERS ? process.env.OTHERS.split(',') : [];
 
-
-    let urls = [`http://localhost:3000`, `http://localhost:3001`, `http://localhost:3002`]
+    let urls = [ADDRESS, OTHERS[0], OTHERS[1]]
 
     urls.forEach(url => {
 
@@ -36,7 +38,7 @@ function sendBlock(block) {
             throw new Error('Something went wrong');
         })
         .catch((error) => {
-            // parentPort.postMessage(`Server ${url} is unavailable`)
+            // parentPort.postMessage(Server ${url} is unavailable)
         });
 
     })
