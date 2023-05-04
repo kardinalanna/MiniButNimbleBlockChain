@@ -6,9 +6,9 @@ const {workerData, parentPort} = require('worker_threads')
 
 let node = new Node()
 
-node.blockList = workerData.blockList
-node.lastBlockIndex = workerData.lastBlockIndex
-node.nodeId = workerData.nodeId
+node.blockList = workerData[0].blockList
+node.lastBlockIndex = workerData[0].lastBlockIndex
+node.nodeId = workerData[0].nodeId
 
 parentPort.on('message', msg => {
     node.blockList = msg.blockList
@@ -17,9 +17,15 @@ parentPort.on('message', msg => {
 })
 
 function sendBlock(block) {
+	
+	
+	const adr = process.env.ADRESS || workerData[1]
+	let otAdr = (process.env.OTHERS ? process.env.OTHERS.split(',') : []) 
+	if (typeof process.env.OTHERS === 'undefined') {
+		otAdr = [workerData[2], workerData[3]]
+	}
 
-
-    let urls = [`http://localhost:3000`, `http://localhost:3001`, `http://localhost:3002`]
+    let urls = [adr, otAdr[0], otAdr[1]]
 
     urls.forEach(url => {
 
