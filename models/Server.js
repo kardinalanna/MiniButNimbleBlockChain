@@ -5,10 +5,10 @@ const {Worker} = require('worker_threads')
 
 module.exports = class Server {
 
-    constructor(processId, port) {
+    constructor(processId) {
 		let adr
 		let otAdr
-		if (processId === 0){
+		if (processId === 2){
 			adr = 'http://node2:3002'
 			otAdr = ['http://node1:3001', 'http://node0:3000']
 		}
@@ -17,7 +17,7 @@ module.exports = class Server {
 			otAdr = ['http://node0:3000', 'http://node2:3002']
 		}
 		
-		if (processId === 2){
+		if (processId === 0){
 			adr = 'http://node0:3000'
 			otAdr = ['http://node1:3001', 'http://node2:3002']
 		}

@@ -20,8 +20,8 @@ function sendBlock(block) {
 	
 	
 	const adr = process.env.ADRESS || workerData[1]
-	let otAdr = process.env.OTHERS ? process.env.OTHERS.split(',') : [];
-	if (otAdr === null) {
+	let otAdr = (process.env.OTHERS ? process.env.OTHERS.split(',') : []) 
+	if (typeof process.env.OTHERS === 'undefined') {
 		otAdr = [workerData[2], workerData[3]]
 	}
 

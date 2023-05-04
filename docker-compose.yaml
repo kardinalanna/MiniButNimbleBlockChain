@@ -7,10 +7,6 @@ services:
     command: "index.js 2"
     ports:
         - "3002:3002"
-    environment:
-      ADRESS: http://node2:3002
-      OTHERS: http://node0:3000,http://node1:3001
-      PORT: 3002
     stdin_open: true
     tty: true
 
@@ -21,10 +17,6 @@ services:
     command: "index.js 1"
     ports:
         - "3001:3001"
-    environment:
-      ADRESS: http://node1:3001
-      OTHERS: http://node0:3000,http://node2:3002
-      PORT: 3001
     stdin_open: true
     tty: true
 
@@ -34,10 +26,6 @@ services:
     command: "index.js 0"
     ports:
         - "3000:3000"
-    environment:
-      ADRESS: http://node0:3000
-      OTHERS: http://node1:3001,http://node2:3002
-      PORT: 3000
     stdin_open: true
     tty: true
     depends_on:
