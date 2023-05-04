@@ -6,9 +6,9 @@ const {workerData, parentPort} = require('worker_threads')
 
 let node = new Node()
 
-node.blockList = workerData.blockList
-node.lastBlockIndex = workerData.lastBlockIndex
-node.nodeId = workerData.nodeId
+node.blockList = workerData[0].blockList
+node.lastBlockIndex = workerData[0].lastBlockIndex
+node.nodeId = workerData[0].nodeId
 
 parentPort.on('message', msg => {
     node.blockList = msg.blockList
@@ -17,11 +17,15 @@ parentPort.on('message', msg => {
 })
 
 function sendBlock(block) {
-  
-  const ADDRESS = process.env.ADDRESS
-  const OTHERS = process.env.OTHERS ? process.env.OTHERS.split(',') : [];
+	
+	
+	const adr = process.env.ADRESS || workerData[1]
+	let otAdr = process.env.OTHERS ? process.env.OTHERS.split(',') : [];
+	if (otAdr === null) {
+		otAdr = [workerData[2], workerData[3]]
+	}
 
-    let urls = [ADDRESS, OTHERS[0], OTHERS[1]]
+    let urls = [adr, otAdr[0], otAdr[1]]
 
     urls.forEach(url => {
 
@@ -38,7 +42,7 @@ function sendBlock(block) {
             throw new Error('Something went wrong');
         })
         .catch((error) => {
-            // parentPort.postMessage(Server ${url} is unavailable)
+            // parentPort.postMessage(`Server ${url} is unavailable`)
         });
 
     })
