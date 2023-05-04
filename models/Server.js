@@ -6,9 +6,27 @@ const {Worker} = require('worker_threads')
 module.exports = class Server {
 
     constructor(processId) {
+		let adr
+		let otAdr
+		if (processId === 2){
+			adr = 'http://node2:3002'
+			otAdr = ['http://node1:3001', 'http://node0:3000']
+		}
+		if (processId === 1){
+			adr = 'http://node1:3001'
+			otAdr = ['http://node0:3000', 'http://node2:3002']
+		}
+		
+		if (processId === 0){
+			adr = 'http://node0:3000'
+			otAdr = ['http://node1:3001', 'http://node2:3002']
+		}
+			
         this.node = new Node(processId)
+		let url = [this.node, adr, otAdr[0], otAdr[1]]
+		this.port = process.env.PORT || (3000 + processId)
         this.processId = processId
-        this.worker = new Worker('./models/worker.js', { workerData: this.node })
+        this.worker = new Worker('./models/worker.js', { workerData: url })
         this.app = null
     }
 
@@ -25,7 +43,8 @@ module.exports = class Server {
         const app = express()
 
         app.use(express.json())
-        const port = 3000 + this.processId
+		
+		const port = this.port
 
         app.post('/', function(req, res) {
 
