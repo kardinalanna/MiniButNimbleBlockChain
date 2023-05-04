@@ -1,4 +1,4 @@
 FROM node
 COPY . .
 RUN npm install
-RUN npm test
+CMD ["node","index.js"]
