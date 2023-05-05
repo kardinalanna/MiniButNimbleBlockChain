@@ -9,17 +9,17 @@ module.exports = class Server {
 		let adr
 		let otAdr
 		if (processId === 2){
-			adr = 'http://node2:3002'
-			otAdr = ['http://node1:3001', 'http://node0:3000']
+			adr = 'http://localhost:3002'
+			otAdr = ['http://localhost:3001', 'http://localhost:3000']
 		}
 		if (processId === 1){
-			adr = 'http://node1:3001'
-			otAdr = ['http://node0:3000', 'http://node2:3002']
+			adr = 'http://localhost:3001'
+			otAdr = ['http://localhost:3000', 'http://localhost:3002']
 		}
 		
 		if (processId === 0){
-			adr = 'http://node0:3000'
-			otAdr = ['http://node1:3001', 'http://node2:3002']
+			adr = 'http://localhost:3000'
+			otAdr = ['http://localhost:3001', 'http://localhost:3002']
 		}
 			
         this.node = new Node(processId)
